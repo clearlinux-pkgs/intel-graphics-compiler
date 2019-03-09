@@ -1,0 +1,10 @@
+--- intel-graphics-compiler-igc_release_2019-02-25/IGC/CMakeLists.txt~	2019-02-22 12:37:30.000000000 +0000
++++ intel-graphics-compiler-igc_release_2019-02-25/IGC/CMakeLists.txt	2019-03-09 20:01:37.261219678 +0000
+@@ -2768,7 +2768,6 @@
+           -march=corei7
+           -mstackrealign
+           -fms-extensions
+-          -Werror
+           -Wno-unused-parameter
+           -Wno-missing-field-initializers
+           -Wwrite-strings

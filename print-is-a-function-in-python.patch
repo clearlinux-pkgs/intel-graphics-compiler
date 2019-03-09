@@ -1,0 +1,15 @@
+--- intel-graphics-compiler-igc_release_2019-02-25/IGC/BiFModule/concat.py~	2019-02-22 12:37:30.000000000 +0000
++++ intel-graphics-compiler-igc_release_2019-02-25/IGC/BiFModule/concat.py	2019-03-09 20:04:07.792217582 +0000
+@@ -46,9 +46,9 @@
+ import sys
+ 
+ def Usage () :
+-  print r'Usage: concat.py -new <outfile> <f0> <f1> ...'
+-  print r'  To concatenate files in order into a new file <outfile>.'
+-  print r'  Input files are <f0> <f1>, and they are at least two.'
++  print(r'Usage: concat.py -new <outfile> <f0> <f1> ...')
++  print(r'  To concatenate files in order into a new file <outfile>.')
++  print(r'  Input files are <f0> <f1>, and they are at least two.')
+ 
+ if len(sys.argv) < 5 :
+   Usage()
