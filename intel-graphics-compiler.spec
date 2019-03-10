@@ -4,13 +4,14 @@
 #
 Name     : intel-graphics-compiler
 Version  : i.2019.02.25
-Release  : 2
+Release  : 3
 URL      : https://github.com/intel/intel-graphics-compiler/archive/igc_release_2019-02-25.tar.gz
 Source0  : https://github.com/intel/intel-graphics-compiler/archive/igc_release_2019-02-25.tar.gz
 Summary  : Intel Graphics Compiler for OpenCL
 Group    : Development/Tools
 License  : BSD-3-Clause MIT
 Requires: intel-graphics-compiler-bin = %{version}-%{release}
+Requires: intel-graphics-compiler-lib = %{version}-%{release}
 Requires: intel-graphics-compiler-license = %{version}-%{release}
 BuildRequires : bison-dev
 BuildRequires : buildreq-cmake
@@ -42,12 +43,22 @@ bin components for the intel-graphics-compiler package.
 %package dev
 Summary: dev components for the intel-graphics-compiler package.
 Group: Development
+Requires: intel-graphics-compiler-lib = %{version}-%{release}
 Requires: intel-graphics-compiler-bin = %{version}-%{release}
 Provides: intel-graphics-compiler-devel = %{version}-%{release}
 Requires: intel-graphics-compiler = %{version}-%{release}
 
 %description dev
 dev components for the intel-graphics-compiler package.
+
+
+%package lib
+Summary: lib components for the intel-graphics-compiler package.
+Group: Libraries
+Requires: intel-graphics-compiler-license = %{version}-%{release}
+
+%description lib
+lib components for the intel-graphics-compiler package.
 
 
 %package license
@@ -69,7 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552228625
+export SOURCE_DATE_EPOCH=1552231653
 unset LD_AS_NEEDED
 mkdir -p clr-build
 pushd clr-build
@@ -79,7 +90,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552228625
+export SOURCE_DATE_EPOCH=1552231653
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/intel-graphics-compiler
 cp IGC/BiFModule/Implementation/ExternalLibraries/libclc/LICENSE.TXT %{buildroot}/usr/share/package-licenses/intel-graphics-compiler/IGC_BiFModule_Implementation_ExternalLibraries_libclc_LICENSE.TXT
@@ -87,6 +98,9 @@ cp third_party/opencl_headers/LICENSE %{buildroot}/usr/share/package-licenses/in
 pushd clr-build
 %make_install
 popd
+## install_append content
+mv %{buildroot}/usr/lib/*so %{buildroot}/usr/lib64/
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -307,11 +321,14 @@ popd
 /usr/include/igc/ocl_igc_shared/executable_format/program_debug_data.h
 /usr/include/igc/ocl_igc_shared/gtpin/gtpin_driver_common.h
 /usr/include/igc/ocl_igc_shared/gtpin/gtpin_ocl_interface.h
-/usr/lib/libcommon_clang.so
-/usr/lib/libiga64.so
-/usr/lib/libigc.so
-/usr/lib/libigdfcl.so
 /usr/lib64/pkgconfig/igc-opencl.pc
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib64/libcommon_clang.so
+/usr/lib64/libiga64.so
+/usr/lib64/libigc.so
+/usr/lib64/libigdfcl.so
 
 %files license
 %defattr(0644,root,root,0755)
