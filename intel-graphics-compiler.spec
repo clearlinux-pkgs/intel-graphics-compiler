@@ -4,7 +4,7 @@
 #
 Name     : intel-graphics-compiler
 Version  : i.2019.02.25
-Release  : 5
+Release  : 6
 URL      : https://github.com/intel/intel-graphics-compiler/archive/igc_release_2019-02-25.tar.gz
 Source0  : https://github.com/intel/intel-graphics-compiler/archive/igc_release_2019-02-25.tar.gz
 Summary  : Intel Graphics Compiler for OpenCL
