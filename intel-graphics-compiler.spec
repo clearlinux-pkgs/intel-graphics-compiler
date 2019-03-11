@@ -86,7 +86,7 @@ mkdir -p clr-build
 pushd clr-build
 export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags}
+make  
 popd
 
 %install
