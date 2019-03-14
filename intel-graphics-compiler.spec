@@ -4,7 +4,7 @@
 #
 Name     : intel-graphics-compiler
 Version  : i.2019.02.25
-Release  : 6
+Release  : 7
 URL      : https://github.com/intel/intel-graphics-compiler/archive/igc_release_2019-02-25.tar.gz
 Source0  : https://github.com/intel/intel-graphics-compiler/archive/igc_release_2019-02-25.tar.gz
 Summary  : Intel Graphics Compiler for OpenCL
@@ -20,6 +20,7 @@ BuildRequires : llvm
 BuildRequires : llvm-dev
 BuildRequires : llvm-extras
 BuildRequires : nose
+BuildRequires : python-core
 Patch1: warn-as-error-if-evil.patch
 Patch2: print-is-a-function-in-python.patch
 Patch3: add-static.patch
@@ -80,17 +81,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552237876
+export SOURCE_DATE_EPOCH=1552577577
 unset LD_AS_NEEDED
 mkdir -p clr-build
 pushd clr-build
 export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552237876
+export SOURCE_DATE_EPOCH=1552577577
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/intel-graphics-compiler
 cp IGC/BiFModule/Implementation/ExternalLibraries/libclc/LICENSE.TXT %{buildroot}/usr/share/package-licenses/intel-graphics-compiler/IGC_BiFModule_Implementation_ExternalLibraries_libclc_LICENSE.TXT
