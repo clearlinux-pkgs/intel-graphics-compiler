@@ -5,3 +5,5 @@ llvm-dev
 llvm-extras
 nose
 python-core
+opencl-clang
+opencl-clang-dev

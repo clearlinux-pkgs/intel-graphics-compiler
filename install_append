@@ -1,1 +1,11 @@
-mv %{buildroot}/usr/lib/*so %{buildroot}/usr/lib64/
+rm %{buildroot}/usr/include/igc/cif/cif/builtins/*.cpp
+rm %{buildroot}/usr/include/igc/cif/cif/builtins/memory/buffer/impl/*.cpp
+rm %{buildroot}/usr/include/igc/cif/cif/export/*.cpp
+rm %{buildroot}/usr/include/igc/cif/cif/helpers/*.cpp
+rm %{buildroot}/usr/include/igc/cif/cif/import/*.cpp
+rm %{buildroot}/usr/include/igc/cif/cif/os/*/*.cpp
+rm %{buildroot}/usr/include/igc/ocl_igc_interface/impl/*.cpp
+#rm %{buildroot}/usr/lib/libopencl-clang.so
+
+
+

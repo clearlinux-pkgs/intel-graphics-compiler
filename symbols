@@ -100,10 +100,8 @@ libigc.so:InitCflWaTable
 libigc.so:InitChvWaTable
 libigc.so:InitCnlWaTable
 libigc.so:InitGlkWaTable
-libigc.so:InitGlvWaTable
 libigc.so:InitIclHwWaTable
 libigc.so:InitIclLpHwWaTable
-libigc.so:InitJslHwWaTable
 libigc.so:InitKblWaTable
 libigc.so:InitLkfHwWaTable
 libigc.so:InitSklWaTable
