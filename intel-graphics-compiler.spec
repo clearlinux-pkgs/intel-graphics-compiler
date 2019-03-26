@@ -4,7 +4,7 @@
 #
 Name     : intel-graphics-compiler
 Version  : i.2019.03.12
-Release  : 16
+Release  : 17
 URL      : https://github.com/intel/intel-graphics-compiler/archive/igc_release_2019-03-12.tar.gz
 Source0  : https://github.com/intel/intel-graphics-compiler/archive/igc_release_2019-03-12.tar.gz
 Summary  : Intel(R) Graphics Compiler for OpenCL(TM)
@@ -87,7 +87,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1553186494
+export SOURCE_DATE_EPOCH=1553642979
 unset LD_AS_NEEDED
 mkdir -p clr-build
 pushd clr-build
@@ -97,7 +97,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1553186494
+export SOURCE_DATE_EPOCH=1553642979
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/intel-graphics-compiler
 cp IGC/BiFModule/Implementation/ExternalLibraries/libclc/LICENSE.TXT %{buildroot}/usr/share/package-licenses/intel-graphics-compiler/IGC_BiFModule_Implementation_ExternalLibraries_libclc_LICENSE.TXT
