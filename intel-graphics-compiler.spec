@@ -4,7 +4,7 @@
 #
 Name     : intel-graphics-compiler
 Version  : i.2019.03.12
-Release  : 17
+Release  : 20
 URL      : https://github.com/intel/intel-graphics-compiler/archive/igc_release_2019-03-12.tar.gz
 Source0  : https://github.com/intel/intel-graphics-compiler/archive/igc_release_2019-03-12.tar.gz
 Summary  : Intel(R) Graphics Compiler for OpenCL(TM)
@@ -28,7 +28,7 @@ Patch1: warn-as-error-if-evil.patch
 Patch2: print-is-a-function-in-python.patch
 Patch3: add-static.patch
 Patch4: 0001-fix-dependecy-on-ElfPackager.patch
-Patch5: 0001-Use-GNUInstallDirs-for-install-paths-applying-pull-r.patch
+Patch5: 0001-Fixing-GNUInstallDirs-and-adding-missiing-version-up.patch
 
 %description
 IGA - Intel Graphics Assembler
@@ -87,7 +87,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1553642979
+export SOURCE_DATE_EPOCH=1553841569
 unset LD_AS_NEEDED
 mkdir -p clr-build
 pushd clr-build
@@ -97,7 +97,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1553642979
+export SOURCE_DATE_EPOCH=1553841569
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/intel-graphics-compiler
 cp IGC/BiFModule/Implementation/ExternalLibraries/libclc/LICENSE.TXT %{buildroot}/usr/share/package-licenses/intel-graphics-compiler/IGC_BiFModule_Implementation_ExternalLibraries_libclc_LICENSE.TXT
@@ -113,6 +113,7 @@ rm %{buildroot}/usr/include/igc/cif/cif/helpers/*.cpp
 rm %{buildroot}/usr/include/igc/cif/cif/import/*.cpp
 rm %{buildroot}/usr/include/igc/cif/cif/os/*/*.cpp
 rm %{buildroot}/usr/include/igc/ocl_igc_interface/impl/*.cpp
+rm %{buildroot}/usr/lib/libopencl_clang.so
 ## install_append end
 
 %files
@@ -189,7 +190,6 @@ rm %{buildroot}/usr/include/igc/ocl_igc_interface/impl/*.cpp
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/libopencl_clang.so
 /usr/lib64/libiga64.so
 /usr/lib64/libigc.so
 /usr/lib64/libigdfcl.so
