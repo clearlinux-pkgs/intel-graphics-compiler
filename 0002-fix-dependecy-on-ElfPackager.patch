@@ -1,4 +1,4 @@
-From d27ed331242c728208106ad486a3026bd146618c Mon Sep 17 00:00:00 2001
+From a72d38615e8d29d8c0f7d6ef083866bdf19b9f6a Mon Sep 17 00:00:00 2001
 From: Kevron Rees <kevron.m.rees@intel.com>
 Date: Wed, 13 Mar 2019 10:43:39 -0700
 Subject: [PATCH] fix dependecy on ElfPackager
@@ -22,10 +22,10 @@ index 1a23213..d47f6a8 100644
          sys.stderr.write('ERROR: Cannot create/open output file "{0}".\n       {1}.\n'.format(sys.argv[2], ex.strerror))
          exit(1)
 diff --git a/IGC/CMakeLists.txt b/IGC/CMakeLists.txt
-index fd6721d..0aa6635 100644
+index 3a0657c..4831e63 100644
 --- a/IGC/CMakeLists.txt
 +++ b/IGC/CMakeLists.txt
-@@ -51,7 +51,7 @@ if(POLICY CMP0058)
+@@ -55,7 +55,7 @@ if(POLICY CMP0058)
      cmake_policy(SET CMP0058 NEW)
  endif()
  
@@ -34,7 +34,7 @@ index fd6721d..0aa6635 100644
  
  # ======================================================================================================
  # ================================================ UTILS ===============================================
-@@ -3529,7 +3529,7 @@ add_library("${IGC_BUILD__PROJ__igc_dll}" SHARED
+@@ -3533,7 +3533,7 @@ add_library("${IGC_BUILD__PROJ__igc_dll}" SHARED
      ${IGC_BUILD__RES__IGC__fcl_dll}
    )
  
@@ -44,5 +44,5 @@ index fd6721d..0aa6635 100644
  target_include_directories(${IGC_BUILD__PROJ__igc_dll} INTERFACE
    "${CMAKE_CURRENT_SOURCE_DIR}/AdaptorOCL/ocl_igc_shared"
 -- 
-2.17.1
+2.21.0
 
