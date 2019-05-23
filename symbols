@@ -74,6 +74,7 @@ libiga64.so.1:kv_get_source_register
 libiga64.so.1:kv_get_source_register_kind
 libiga64.so.1:kv_get_source_register_type
 libiga64.so.1:kv_get_source_sub_register
+libiga64.so.1:kv_has_inst_opt
 libiga64.so.1:kv_is_inst_target
 libiga64.so.1:kv_is_source_vector
 libigc.so.1:CIFCreateMain
@@ -106,7 +107,6 @@ libigc.so.1:InitKblWaTable
 libigc.so.1:InitLkfHwWaTable
 libigc.so.1:InitSklWaTable
 libigc.so.1:JITCompile
-libigc.so.1:JITCompileWithRelocation
 libigc.so.1:JITCompile_v2
 libigc.so.1:Register
 libigc.so.1:_Z17FloatExponentBitsIdEiv
@@ -188,6 +188,7 @@ libigc.so.1:kv_get_source_register
 libigc.so.1:kv_get_source_register_kind
 libigc.so.1:kv_get_source_register_type
 libigc.so.1:kv_get_source_sub_register
+libigc.so.1:kv_has_inst_opt
 libigc.so.1:kv_is_inst_target
 libigc.so.1:kv_is_source_vector
 libigdfcl.so.1:CIFCreateMain

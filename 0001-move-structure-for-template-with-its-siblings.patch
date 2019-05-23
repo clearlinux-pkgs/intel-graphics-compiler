@@ -1,0 +1,76 @@
+From b9793f83d2f80a51612fcd044049c52296087508 Mon Sep 17 00:00:00 2001
+From: Daniel Charles <daniel.charles@intel.com>
+Date: Thu, 23 May 2019 20:10:02 +0000
+Subject: [PATCH] move structure for template with its siblings
+
+Signed-off-by: Daniel Charles <daniel.charles@intel.com>
+---
+ .../cif/cif/builtins/builtins_registry.cpp           |  2 +-
+ IGC/AdaptorOCL/cif/cif/common/cif.h                  | 12 ------------
+ IGC/AdaptorOCL/cif/cif/export/cif_main_impl.h        |  7 +++++++
+ 3 files changed, 8 insertions(+), 13 deletions(-)
+
+diff --git a/IGC/AdaptorOCL/cif/cif/builtins/builtins_registry.cpp b/IGC/AdaptorOCL/cif/cif/builtins/builtins_registry.cpp
+index a9eea64e..3dc2f9c6 100644
+--- a/IGC/AdaptorOCL/cif/cif/builtins/builtins_registry.cpp
++++ b/IGC/AdaptorOCL/cif/cif/builtins/builtins_registry.cpp
+@@ -39,7 +39,7 @@ namespace Builtins {
+ using AllBuiltinsListT =  InterfacesList<CIF::Builtins::Buffer>;
+ 
+ bool IsBuiltin(InterfaceId_t intId){
+-    return AllBuiltinsListT::ContainsInterface(intId);
++    return AllBuiltinsListT::template forwardToOne<Helpers::IsInterfaceIdFwdToOne, bool>(intId, false);
+ }
+ 
+ ICIF *Create(InterfaceId_t entryPointInterface, Version_t version, ICIF *parentInterface){
+diff --git a/IGC/AdaptorOCL/cif/cif/common/cif.h b/IGC/AdaptorOCL/cif/cif/common/cif.h
+index 99d67d5a..a9954d94 100644
+--- a/IGC/AdaptorOCL/cif/cif/common/cif.h
++++ b/IGC/AdaptorOCL/cif/cif/common/cif.h
+@@ -289,14 +289,6 @@ template <> struct InterfacePack<> {
+ };
+ 
+ 
+-struct IsInterfaceIdFwdToOne
+-{
+-    template<template <Version_t> class Interface>
+-    static bool Call(){
+-        return true;
+-    }
+-};
+-
+ /// Storage for versioned CIF interfaces
+ /// Useful in operations on sets of interfaces
+ template <template <Version_t> class... SupportedInterfaces>
+@@ -327,10 +319,6 @@ struct InterfacesList {
+ #endif
+   }
+ 
+-  static bool ContainsInterface(InterfaceId_t id){
+-      return forwardToOne<IsInterfaceIdFwdToOne, bool, bool>(id, false);
+-  }
+-
+ protected:
+   template<typename T = void>
+   static constexpr uint32_t GetNumInterfacesImpl(){
+diff --git a/IGC/AdaptorOCL/cif/cif/export/cif_main_impl.h b/IGC/AdaptorOCL/cif/cif/export/cif_main_impl.h
+index d75ac754..dc804a5f 100644
+--- a/IGC/AdaptorOCL/cif/cif/export/cif_main_impl.h
++++ b/IGC/AdaptorOCL/cif/cif/export/cif_main_impl.h
+@@ -36,6 +36,13 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ namespace CIF {
+ 
+ namespace Helpers {
++  struct IsInterfaceIdFwdToOne {
++    template<template <Version_t> class Interface>
++    static bool Call(){
++      return true;
++    }
++  };
++
+   struct ForwardCreateInterfaceImpl {
+     template <template <Version_t> class Interface, typename ... ArgsT>
+     static Interface<CIF::BaseVersion> *Call(Version_t version, ArgsT && ... args) {
+-- 
+2.21.0
+
