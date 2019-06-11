@@ -66,6 +66,7 @@ libiga64.so.1:kv_get_opcode
 libiga64.so.1:kv_get_opgroup
 libiga64.so.1:kv_get_predicate
 libiga64.so.1:kv_get_send_descs
+libiga64.so.1:kv_get_send_indirect_descs
 libiga64.so.1:kv_get_source_data_type
 libiga64.so.1:kv_get_source_immediate
 libiga64.so.1:kv_get_source_modifier
@@ -180,6 +181,7 @@ libigc.so.1:kv_get_opcode
 libigc.so.1:kv_get_opgroup
 libigc.so.1:kv_get_predicate
 libigc.so.1:kv_get_send_descs
+libigc.so.1:kv_get_send_indirect_descs
 libigc.so.1:kv_get_source_data_type
 libigc.so.1:kv_get_source_immediate
 libigc.so.1:kv_get_source_modifier
