@@ -98,13 +98,14 @@ libigc.so.1:GTPIN_IGC_OCL_SetEnabled
 libigc.so.1:GTPIN_IGC_OCL_UpdateKernelInfo
 libigc.so.1:InitBdwWaTable
 libigc.so.1:InitBxtWaTable
-libigc.so.1:InitCflWaTable
+libigc.so.1:InitCflNonDisplayWaTable
 libigc.so.1:InitChvWaTable
 libigc.so.1:InitCnlWaTable
 libigc.so.1:InitGlkWaTable
 libigc.so.1:InitIclHwWaTable
 libigc.so.1:InitIclLpHwWaTable
-libigc.so.1:InitKblWaTable
+libigc.so.1:InitKblDisplayWaTable
+libigc.so.1:InitKblNonDisplayWaTable
 libigc.so.1:InitLkfHwWaTable
 libigc.so.1:InitSklWaTable
 libigc.so.1:JITCompile
