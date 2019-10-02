@@ -75,6 +75,7 @@ libiga64.so.1:kv_get_source_register
 libiga64.so.1:kv_get_source_register_kind
 libiga64.so.1:kv_get_source_register_type
 libiga64.so.1:kv_get_source_sub_register
+libiga64.so.1:kv_get_swsb_info
 libiga64.so.1:kv_has_inst_opt
 libiga64.so.1:kv_is_inst_target
 libiga64.so.1:kv_is_source_vector
@@ -101,6 +102,7 @@ libigc.so.1:InitBxtWaTable
 libigc.so.1:InitCflNonDisplayWaTable
 libigc.so.1:InitChvWaTable
 libigc.so.1:InitCnlWaTable
+libigc.so.1:InitEhlHwWaTable
 libigc.so.1:InitGlkWaTable
 libigc.so.1:InitIclHwWaTable
 libigc.so.1:InitIclLpHwWaTable
@@ -108,6 +110,7 @@ libigc.so.1:InitKblDisplayWaTable
 libigc.so.1:InitKblNonDisplayWaTable
 libigc.so.1:InitLkfHwWaTable
 libigc.so.1:InitSklWaTable
+libigc.so.1:InitTglLpHwWaTable
 libigc.so.1:JITCompile
 libigc.so.1:JITCompile_v2
 libigc.so.1:Register
@@ -191,6 +194,7 @@ libigc.so.1:kv_get_source_register
 libigc.so.1:kv_get_source_register_kind
 libigc.so.1:kv_get_source_register_type
 libigc.so.1:kv_get_source_sub_register
+libigc.so.1:kv_get_swsb_info
 libigc.so.1:kv_has_inst_opt
 libigc.so.1:kv_is_inst_target
 libigc.so.1:kv_is_source_vector
