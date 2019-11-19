@@ -4,7 +4,7 @@
 #
 Name     : intel-graphics-compiler
 Version  : 1.0.2805
-Release  : 36
+Release  : 37
 URL      : https://github.com/intel/intel-graphics-compiler/archive/igc-1.0.2805.tar.gz
 Source0  : https://github.com/intel/intel-graphics-compiler/archive/igc-1.0.2805.tar.gz
 Summary  : Intel(R) Graphics Compiler for OpenCL(TM)
@@ -80,7 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1574184143
+export SOURCE_DATE_EPOCH=1574189845
 unset LD_AS_NEEDED
 mkdir -p clr-build
 pushd clr-build
@@ -94,7 +94,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1574184143
+export SOURCE_DATE_EPOCH=1574189845
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/intel-graphics-compiler
 cp %{_builddir}/intel-graphics-compiler-8234eab514161d6a45ff04ed6418840f4e959942/IGC/BiFModule/Implementation/ExternalLibraries/libclc/LICENSE.TXT %{buildroot}/usr/share/package-licenses/intel-graphics-compiler/e92d77d1b61e0abf19a638a33635e8885ba36afd
