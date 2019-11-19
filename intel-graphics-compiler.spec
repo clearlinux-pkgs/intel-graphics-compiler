@@ -71,8 +71,8 @@ license components for the intel-graphics-compiler package.
 
 
 %prep
-%setup -q -n intel-graphics-compiler-8234eab514161d6a45ff04ed6418840f4e959942
-cd %{_builddir}/intel-graphics-compiler-8234eab514161d6a45ff04ed6418840f4e959942
+%setup -q -n intel-graphics-compiler-c088bec3008d41dbc09b55104b7047edd7df5516
+cd %{_builddir}/intel-graphics-compiler-c088bec3008d41dbc09b55104b7047edd7df5516
 %patch1 -p1
 
 %build
