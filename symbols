@@ -102,7 +102,6 @@ libigc.so.1:InitBxtWaTable
 libigc.so.1:InitCflNonDisplayWaTable
 libigc.so.1:InitChvWaTable
 libigc.so.1:InitCnlWaTable
-libigc.so.1:InitEhlHwWaTable
 libigc.so.1:InitGlkWaTable
 libigc.so.1:InitIclHwWaTable
 libigc.so.1:InitIclLpHwWaTable
