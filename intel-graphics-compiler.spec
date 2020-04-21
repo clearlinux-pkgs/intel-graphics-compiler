@@ -4,7 +4,7 @@
 #
 Name     : intel-graphics-compiler
 Version  : 1.0.3771
-Release  : 42
+Release  : 43
 URL      : https://github.com/intel/intel-graphics-compiler/archive/igc-1.0.3771.tar.gz
 Source0  : https://github.com/intel/intel-graphics-compiler/archive/igc-1.0.3771.tar.gz
 Summary  : Intel(R) Graphics Compiler for OpenCL(TM)
